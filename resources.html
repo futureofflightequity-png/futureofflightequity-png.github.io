@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Aviation scholarships, flight training, summer programs, STEM opportunities, careers, and competitions for students."
+  >
+
+  <title>Student Resources | Future of Flight Equity</title>
+
+  <style>
+    :root {
+      --navy: #071a2f;
+      --blue: #1769aa;
+      --light-blue: #eaf5ff;
+      --white: #ffffff;
+      --off-white: #f7f9fc;
+      --text: #172033;
+      --muted: #5f6b7a;
+      --border: #dce5ef;
+      --shadow: 0 18px 50px rgba(7, 26, 47, 0.10);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 88%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--navy);
+      color: white;
+      font-size: 21px;
+    }
+
+    .brand-text {
+      line-height: 1.05;
+    }
+
+    .brand-text span {
+      display: block;
+      margin-top: 4px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 26px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 650;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    .hero {
+      padding: 120px 0 100px;
+      color: white;
+      background:
+        radial-gradient(circle at top right, #267fc2, transparent 38%),
+        var(--navy);
+    }
+
+    .hero-label {
+      display: inline-block;
+      margin-bottom: 22px;
+      padding: 9px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.09);
+      font-size: 13px;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(52px, 8vw, 88px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .hero p {
+      max-width: 750px;
+      margin: 27px 0 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.65;
+    }
+
+    .category-menu {
+      padding: 35px 0;
+      background: var(--off-white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .category-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .category-links a {
+      padding: 11px 17px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: white;
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .category-links a:hover {
+      color: white;
+      background: var(--navy);
+    }
+
+    section {
+      padding: 95px 0;
+      scroll-margin-top: 100px;
+    }
+
+    section:nth-of-type(even) {
+      background: var(--off-white);
+    }
+
+    .section-heading {
+      max-width: 780px;
+      margin-bottom: 42px;
+    }
+
+    .section-label {
+      margin-bottom: 14px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(36px, 5vw, 55px);
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    .section-heading p {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 23px;
+    }
+
+    .resource-card {
+      min-height: 285px;
+      padding: 31px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: 0 12px 35px rgba(7, 26, 47, 0.06);
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .resource-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .resource-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .resource-icon {
+      width: 53px;
+      height: 53px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--light-blue);
+      font-size: 25px;
+    }
+
+    .official-label {
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--off-white);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .resource-card h3 {
+      margin: 25px 0 10px;
+      color: var(--navy);
+      font-size: 24px;
+    }
+
+    .organization {
+      margin-bottom: 12px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .resource-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .resource-link {
+      width: fit-content;
+      margin-top: auto;
+      padding-top: 24px;
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .resource-link:hover {
+      text-decoration: underline;
+    }
+
+    .notice {
+      margin-top: 45px;
+      padding: 25px;
+      border-left: 5px solid var(--blue);
+      border-radius: 0 17px 17px 0;
+      background: var(--light-blue);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .cta {
+      background: white !important;
+    }
+
+    .cta-box {
+      padding: 70px;
+      border-radius: 34px;
+      color: white;
+      text-align: center;
+      background:
+        radial-gradient(circle at top left, #267fc2, transparent 45%),
+        var(--navy);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box h2 {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .cta-box p {
+      max-width: 670px;
+      margin: 22px auto 0;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .button {
+      min-height: 50px;
+      padding: 0 23px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 750;
+    }
+
+    .button-light {
+      color: var(--navy);
+      background: white;
+    }
+
+    .button-outline {
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .site-footer {
+      padding: 55px 0 35px;
+      color: white;
+      background: #041426;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr 0.6fr;
+      gap: 50px;
+    }
+
+    .footer-grid p {
+      max-width: 440px;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.7;
+    }
+
+    .footer-column h4 {
+      margin-top: 0;
+    }
+
+    .footer-column a {
+      display: block;
+      margin-top: 13px;
+      color: rgba(255, 255, 255, 0.68);
+      text-decoration: none;
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      margin-top: 50px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.11);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 14px;
+    }
+
+    @media (max-width: 850px) {
+      nav {
+        display: none;
+      }
+
+      .resource-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: min(92%, 1120px);
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .hero {
+        padding: 95px 0 80px;
+      }
+
+      .brand-text {
+        font-size: 14px;
+      }
+
+      .brand-text span {
+        font-size: 10px;
+      }
+
+      .cta-box {
+        padding: 55px 24px;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container navbar">
+
+      <a class="brand" href="index.html">
+        <div class="brand-mark">✈</div>
+
+        <div class="brand-text">
+          Future of Flight Equity
+          <span>Aviation access for all</span>
+        </div>
+      </a>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="#flight-training">Training</a>
+        <a href="#scholarships">Scholarships</a>
+        <a href="#summer-programs">Programs</a>
+        <a href="#competitions">Competitions</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <div class="hero">
+      <div class="container">
+
+        <div class="hero-label">
+          Opportunities for students
+        </div>
+
+        <h1>Student Resources</h1>
+
+        <p>
+          Explore trusted programs, scholarships, career pathways, STEM
+          experiences, and competitions from established aviation and
+          aerospace organizations.
+        </p>
+
+      </div>
+    </div>
+
+    <div class="category-menu">
+      <div class="container category-links">
+
+        <a href="#flight-training">✈️ Flight Training</a>
+        <a href="#scholarships">🎓 Scholarships</a>
+        <a href="#summer-programs">🚀 Summer Programs</a>
+        <a href="#technical-careers">🛠️ Technical Careers</a>
+        <a href="#research-stem">🔬 Research & STEM</a>
+        <a href="#competitions">🏆 Competitions</a>
+
+      </div>
+    </div>
+
+    <!-- FLIGHT TRAINING -->
+
+    <section id="flight-training">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">Flight training</div>
+
+          <h2>Take your first steps into the sky.</h2>
+
+          <p>
+            Explore introductory flights, training information, and tools
+            that can help students understand the process of becoming a
+            pilot.
+          </p>
+        </div>
+
+        <div class="resource-grid">
+
+          <article class="resource-card">
+            <div class="resource-top">
+              <div class="resource-icon">✈️</div>
+              <div class="official-label">Youth program</div>
+            </div>
+
+            <h3>EAA Young Eagles</h3>
+            <div class="organization">Experimental Aircraft Association</div>
+
+            <p>
+              Free introductory flights designed to introduce young people
+              to general aviation through local EAA chapters and volunteer
+              pilots.
+            </p>
+
+            <a
+              class="resource-link"
+              href="https://www.eaa.org/eaa/youth/free-ye-flights"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Explore Young Eagles →
+            </a>
+          </article>
+
+          <article class="resource-card">
+            <div class="resource-top">
+              <div class="resource-icon">🗺️</div>
+              <div class="official-label">Official resource</div>
+            </div>
+
+            <h3>FAA Student Aviation Resources</h3>
+            <div class="organization">Federal Aviation Administration</div>
+
+            <p>
+              Find official information about flight schools, pilot careers,
+              aviation education, scholarships, and other student resources.
+            </p>
+
+            <a
+              class="resource-link"
+              href="https://www.faa.gov/education/students/resources"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visit FAA Resources →
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHOLARSHIPS -->
+
+    <section id="scholarships">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">Scholarships</div>
+
+          <h2>Make aviation education more affordable.</h2>
+
+          <p>
+            Scholarship availability, eligibility, award amounts, and
+            deadlines can change. Always confirm details on the official
+            application page.
+          </p>
+        </div>
+
+        <div class="resource-grid">
+
+          <article class="resource-card">
+            <div class="resource-top">
+              <div class="resource-icon">🎓</div>
+              <div class="official-label">Flight training</div>
+            </div>
+
+            <h3>AOPA Flight Training Scholarships</h3>
+            <div class="organization">Aircraft Owners and Pilots Association</div>
+
+            <p>
+              Scholarship opportunities supporting flight training,
+              including options intended for eligible high school students
+              pursuing private pilot certification.
+            </p>
+
+            <a
+              class="resource-link"
+              href="https://www.aopa.org/training-and-safety/students/aopa-flight-training-scholarships"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Explore AOPA Scholarships →
+            </a>
+          </article>
+
+          <article class="resource-card">
+            <div class="resource-top">
+              <div class="resource-icon">💙</div>
+              <div class="official-label">Multiple pathways</div>
+            </div>
+
+            <h3>EAA Aviation Scholarships</h3>
+            <div class="organization">Experimental Aircraft Association</div>
+
+            <p>
+              Explore scholarships for flight training and postsecondary
+              study in aviation, aerospace, engineering, maintenance, and
+              related fields.
+            </p>
+
+            <a
+              class="resource-link"
+              href="https://www.eaa.org/eaa/learn-to-fly/scholarships"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Explore EAA Scholarships →
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SUMMER PROGRAMS -->
+
+    <section id="summer-programs">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">Summer programs</div>
+
+          <h2>Experience aviation beyond the classroom.</h2>
+
+          <p>
+            Camps and academies can introduce students to flying,
+            engineering, maintenance, airports, and other aerospace careers.
+          </p>
+        </div>
+
+        <div class="resource-grid">
+
+          <article class="resource-card">
+            <div class="resource-top">
+              <div class="resource-icon">☀️</div>
+              <div class="official-label">K–12 program</div>
+            </div>
+
+            <h3>FAA ACE Academies</h3>
+            <div class="organization">Federal Aviation Administration</div>
+
+            <p>
+              Summer aviation education programs featuring career
+              exploration, STEM activities, flight concepts, field trips,
+              and aviation-related experiences.
+            </p>
+
+            <a
+              class="resource-link"
+              href="https://www.faa.gov/education/ace_academy"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Find an ACE Academy →
+            </a>
+          </article>
+
+          <article class="resource-card">
+            <div class="resource-top">
+              <div class="resource-icon">🛩️</div>
+              <div class="official-label">Oshkosh, Wisconsin</div>
+            </div>
+
+            <h3>EAA Air Academy</h3>
+            <div class="organization">Experimental Aircraft Association</div>
+
+            <p>
+              Hands-on aviation camps in Oshkosh. Financial assistance may
+              be available through EAA Air Academy camperships.
+            </p>
+
+            <a
+              class="resource-link"
+              href="https://www.eaa.org/eaa/youth/eaa-aviation-and-flight-summer-camps"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Explore Air Academy →
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL CAREERS -->
+
+    <section id="technical-careers">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">Technical careers</div>
+
+          <h2>Aviation needs much more than pilots.</h2>
+
+          <p>
+            Explore careers in maintenance, air traffic control,
+            manufacturing, avionics, engineering, airport operations, and
+            other technical areas.
+          </p>
+        </div>
+
+        <div class="resource-grid">
+
+          <article class="resource-card">
+            <div class="resource-top">
+              <div class="resource-icon">🛠️</div>
+              <div class="official-label">Career explorer</div>
+            </div>
+
+            <h3>Careers in Aviation and Space</h3>
+            <div class="organization">Federal Aviation Administration</div>
+
+            <p>
+              Explore pilot, engineering, maintenance, manufacturing,
+              drone, airport, air traffic control, and aviation operations
+              careers.
+            </p>
+
+            <a
+              class="resource-link"
+              href="https://www.faa.gov/education/about/careers-aviation-and-space"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Explore Aviation Careers →
+            </a>
+          </article>
+
+          <article class="resource-card">
+            <div class="resource-top">
+              <div class="resource-icon">⚙️</div>
+              <div class="official-label">Training locator</div>
+            </div>
+
+            <h3>Aircraft Maintenance Schools</h3>
+            <div class="organization">Federal Aviation Administration</div>
+
+            <p>
+              Learn about FAA-certificated schools that train students for
+              careers in aircraft maintenance and technical aviation work.
+            </p>
+
+            <a
+              class="resource-link"
+              href="https://www.faa.gov/licenses_certificates/airline_certification/amts"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Explore Maintenance Schools →
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH AND STEM -->
+
+    <section id="research-stem">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">Research and STEM</div>
+
+          <h2>Build, investigate, and solve real problems.</h2>
+
+          <p>
+            Find engineering challenges, research experiences, internships,
+            educational activities, and other aerospace STEM opportunities.
+          </p>
+        </div>
+
+        <div class="resource-grid">
+
+          <article class="resource-card">
+            <div class="resource-top">
+              <div class="resource-icon">🔬</div>
+              <div class="official-label">Opportunity database</div>
+            </div>
+
+            <h3>NASA STEM Gateway</h3>
+            <div class="organization">NASA</div>
+
+            <p>
+              Search NASA opportunities including challenges, internships,
+              research, precollege experiences, and educational programs.
+            </p>
+
+            <a
+              class="resource-link"
+              href="https://stemgateway.nasa.gov/public/s/explore-opportunities"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Search NASA Opportunities →
+            </a>
+          </article>
+
+          <article class="resource-card">
+            <div class="resource-top">
+              <div class="resource-icon">🚀</div>
+              <div class="official-label">Student activities</div>
+            </div>
+
+            <h3>NASA Student Opportunities</h3>
+            <div class="organization">NASA</div>
+
+            <p>
+              Explore current STEM activities, engineering challenges,
+              educational programs, and student opportunities connected to
+              NASA missions.
+            </p>
+
+            <a
+              class="resource-link"
+              href="https://www.nasa.gov/learning-resources/nasa-stem-opportunities-activities/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Explore NASA STEM →
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETITIONS -->
+
+    <section id="competitions">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">Competitions</div>
+
+          <h2>Turn aerospace ideas into hands-on projects.</h2>
+
+          <p>
+            Competitions help students practice engineering, teamwork,
+            design, communication, data analysis, and problem-solving.
+          </p>
+        </div>
+
+        <div class="resource-grid">
+
+          <article class="resource-card">
+            <div class="resource-top">
+              <div class="resource-icon">🏆</div>
+              <div class="official-label">Team competition</div>
+            </div>
+
+            <h3>American Rocketry Challenge</h3>
+            <div class="organization">Aerospace Industries Association</div>
+
+            <p>
+              A national competition where middle and high school teams
+              design, build, test, and launch model rockets to meet an annual
+              engineering challenge.
+            </p>
+
+            <a
+              class="resource-link"
+              href="https://rocketcontest.org/how-to-compete/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Learn How to Compete →
+            </a>
+          </article>
+
+          <article class="resource-card">
+            <div class="resource-top">
+              <div class="resource-icon">🛰️</div>
+              <div class="official-label">Multiple challenges</div>
+            </div>
+
+            <h3>NASA STEM Challenges</h3>
+            <div class="organization">NASA</div>
+
+            <p>
+              Browse NASA challenges and projects involving engineering,
+              space exploration, technology, coding, design, and scientific
+              problem-solving.
+            </p>
+
+            <a
+              class="resource-link"
+              href="https://www.nasa.gov/learning-resources/nasa-stem-opportunities-activities/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Explore NASA Challenges →
+            </a>
+          </article>
+
+        </div>
+
+        <div class="notice">
+          <strong>Please verify current details:</strong>
+          Program dates, costs, locations, ages, deadlines, and eligibility
+          requirements may change. Future of Flight Equity links directly to
+          official organizations so students can confirm the latest
+          information before applying.
+        </div>
+
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+
+        <div class="cta-box">
+
+          <h2>Know an opportunity that belongs here?</h2>
+
+          <p>
+            Students, educators, and aviation organizations can suggest
+            reputable programs for possible inclusion in the resource hub.
+          </p>
+
+          <div class="button-row">
+
+            <a
+              class="button button-light"
+              href="mailto:futureofflightequity@gmail.com?subject=FFE Resource Suggestion"
+            >
+              Suggest a Resource
+            </a>
+
+            <a
+              class="button button-outline"
+              href="index.html"
+            >
+              Return to Home
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+          <h3>Future of Flight Equity</h3>
+
+          <p>
+            Expanding access to aviation education through research,
+            resources, and collaboration.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <a href="#flight-training">Flight Training</a>
+          <a href="#scholarships">Scholarships</a>
+          <a href="#summer-programs">Summer Programs</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Explore</h4>
+          <a href="index.html">Home</a>
+          <a href="survey-findings.html">Survey Findings</a>
+          <a href="recommendations.html">Recommendations</a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 Future of Flight Equity. All rights reserved.
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
