@@ -2,105 +2,622 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Future of Flight Equity expands access to aviation education, research, and opportunities."
+  >
 
   <title>Future of Flight Equity</title>
 
   <style>
+    :root {
+      --navy: #071a2f;
+      --blue: #1769aa;
+      --light-blue: #eaf5ff;
+      --sky: #8ed1fc;
+      --white: #ffffff;
+      --off-white: #f7f9fc;
+      --text: #172033;
+      --muted: #5f6b7a;
+      --border: #dce5ef;
+      --shadow: 0 18px 50px rgba(7, 26, 47, 0.10);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      color: #172033;
-      background-color: #ffffff;
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+      color: var(--text);
+      background: var(--white);
     }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 88%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
 
     header {
-      padding: 20px 8%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(220, 229, 239, 0.8);
+    }
+
+    .navbar {
+      min-height: 76px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #e5e7eb;
+      justify-content: space-between;
+      gap: 24px;
     }
 
-    .logo {
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-    nav a {
-      margin-left: 24px;
-      color: #172033;
-      text-decoration: none;
-    }
-
-    .hero {
-      min-height: 70vh;
-      padding: 80px 8%;
+    .brand {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: linear-gradient(135deg, #eef6ff, #ffffff);
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      color: var(--navy);
     }
 
-    .hero h1 {
-      max-width: 800px;
-      margin: 0 0 20px;
-      font-size: clamp(42px, 7vw, 76px);
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--navy);
+      color: white;
+      font-size: 21px;
+    }
+
+    .brand-text {
       line-height: 1.05;
     }
 
-    .hero p {
-      max-width: 650px;
-      font-size: 20px;
-      line-height: 1.6;
-      color: #4b5563;
+    .brand-text span {
+      display: block;
+      font-size: 13px;
+      color: var(--blue);
+      margin-top: 4px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 650;
+      color: var(--text);
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    /* BUTTONS */
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
     }
 
     .button {
-      width: fit-content;
-      margin-top: 20px;
-      padding: 14px 22px;
-      color: white;
-      background-color: #172033;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 22px;
+      border-radius: 999px;
       text-decoration: none;
-      border-radius: 6px;
+      font-weight: 750;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
     }
 
-    .section {
-      padding: 70px 8%;
+    .button:hover {
+      transform: translateY(-2px);
     }
 
-    .section h2 {
-      font-size: 36px;
-      margin-bottom: 18px;
+    .button-primary {
+      background: var(--navy);
+      color: white;
+      box-shadow: 0 12px 30px rgba(7, 26, 47, 0.22);
     }
 
-    .section p {
-      max-width: 750px;
+    .button-primary:hover {
+      background: #0d2948;
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--navy);
+      border: 1px solid var(--border);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 780px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      color: white;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(4, 20, 38, 0.94) 0%,
+          rgba(4, 20, 38, 0.82) 42%,
+          rgba(4, 20, 38, 0.32) 100%
+        ),
+        url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=2000&q=85")
+        center / cover;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      padding: 120px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 24px;
+      padding: 9px 15px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.13);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 0;
+      max-width: 850px;
+      font-size: clamp(52px, 8vw, 92px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .hero p {
+      max-width: 690px;
+      margin: 27px 0 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: clamp(18px, 2.2vw, 23px);
+      line-height: 1.6;
+    }
+
+    .hero .button-secondary {
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    /* GENERAL SECTIONS */
+
+    section {
+      padding: 105px 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 50px;
+    }
+
+    .section-label {
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(36px, 5vw, 57px);
+      line-height: 1.07;
+      letter-spacing: -0.035em;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.75;
+      margin: 20px 0 0;
+    }
+
+    /* MISSION */
+
+    .mission {
+      background: white;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 68px;
+      align-items: center;
+    }
+
+    .mission-copy p {
+      color: var(--muted);
       font-size: 18px;
-      line-height: 1.7;
-      color: #4b5563;
+      line-height: 1.8;
     }
 
-    footer {
-      padding: 30px 8%;
-      background-color: #172033;
+    .mission-panel {
+      padding: 38px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at top right, #d7efff, transparent 45%),
+        var(--off-white);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .mission-panel h3 {
+      margin-top: 0;
+      font-size: 25px;
+      color: var(--navy);
+    }
+
+    .mission-point {
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .mission-icon {
+      flex: 0 0 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: white;
+      box-shadow: 0 8px 20px rgba(7, 26, 47, 0.08);
+    }
+
+    .mission-point strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 5px;
+    }
+
+    .mission-point span {
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* STATISTICS */
+
+    .stats {
+      background: var(--navy);
+      color: white;
+    }
+
+    .stats .section-label {
+      color: var(--sky);
+    }
+
+    .stats .section-heading h2 {
+      color: white;
+    }
+
+    .stats .section-heading p {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .stat-card {
+      padding: 36px;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .stat-number {
+      font-size: clamp(43px, 6vw, 70px);
+      font-weight: 850;
+      letter-spacing: -0.045em;
+      color: white;
+    }
+
+    .stat-card p {
+      margin: 12px 0 0;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.6;
+      font-size: 17px;
+    }
+
+    /* CARDS */
+
+    .research {
+      background: var(--off-white);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      min-height: 300px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      border-radius: var(--radius);
+      background: white;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 35px rgba(7, 26, 47, 0.06);
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+
+    .card-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--light-blue);
+      font-size: 26px;
+    }
+
+    .card h3 {
+      margin: 28px 0 12px;
+      color: var(--navy);
+      font-size: 24px;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .card-link {
+      margin-top: auto;
+      padding-top: 25px;
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 750;
+    }
+
+    /* OPPORTUNITIES */
+
+    .opportunities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .opportunity {
+      padding: 27px;
+      border-radius: 18px;
+      background: white;
+      border: 1px solid var(--border);
+    }
+
+    .opportunity span {
+      font-size: 28px;
+    }
+
+    .opportunity h3 {
+      margin: 18px 0 8px;
+      color: var(--navy);
+    }
+
+    .opportunity p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* CTA */
+
+    .cta {
+      padding-top: 30px;
+    }
+
+    .cta-box {
+      padding: 75px;
+      border-radius: 34px;
       color: white;
       text-align: center;
+      background:
+        radial-gradient(circle at top left, #267fc2, transparent 45%),
+        var(--navy);
+      box-shadow: var(--shadow);
     }
 
-    @media (max-width: 700px) {
-      header {
-        align-items: flex-start;
-        flex-direction: column;
-      }
+    .cta-box h2 {
+      margin: 0 auto;
+      max-width: 760px;
+      font-size: clamp(37px, 5vw, 59px);
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+    }
 
+    .cta-box p {
+      max-width: 650px;
+      margin: 22px auto 0;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .cta-box .button-row {
+      justify-content: center;
+    }
+
+    /* FOOTER */
+
+    footer {
+      margin-top: 100px;
+      padding: 60px 0 35px;
+      background: #041426;
+      color: white;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr 0.6fr;
+      gap: 50px;
+    }
+
+    .footer-brand p {
+      max-width: 440px;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.7;
+    }
+
+    .footer-column h4 {
+      margin-top: 0;
+    }
+
+    .footer-column a {
+      display: block;
+      margin-top: 13px;
+      color: rgba(255, 255, 255, 0.68);
+      text-decoration: none;
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      margin-top: 55px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.11);
+      color: rgba(255, 255, 255, 0.52);
+      font-size: 14px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
       nav {
-        margin-top: 15px;
+        display: none;
       }
 
-      nav a {
-        margin: 0 15px 0 0;
+      .mission-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid,
+      .card-grid,
+      .opportunities-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero {
+        min-height: 700px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      section {
+        padding: 78px 0;
+      }
+
+      .container {
+        width: min(92%, 1120px);
+      }
+
+      .brand-text {
+        font-size: 14px;
+      }
+
+      .brand-text span {
+        font-size: 10px;
+      }
+
+      .hero {
+        min-height: 650px;
+        background-position: 62% center;
+      }
+
+      .hero-content {
+        padding: 90px 0;
+      }
+
+      .stats-grid,
+      .card-grid,
+      .opportunities-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mission-panel {
+        padding: 28px;
+      }
+
+      .cta-box {
+        padding: 55px 24px;
+      }
+
+      .button {
+        width: 100%;
       }
     }
   </style>
@@ -109,73 +626,403 @@
 <body>
 
   <header>
-    <div class="logo">Future of Flight Equity</div>
+    <div class="container navbar">
 
-    <nav>
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="#resources">Resources</a>
-      <a href="#contact">Contact</a>
-    </nav>
+      <a class="brand" href="#home">
+        <div class="brand-mark">✈</div>
+
+        <div class="brand-text">
+          Future of Flight Equity
+          <span>Aviation access for all</span>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#opportunities">Opportunities</a>
+        <a href="#involved">Get Involved</a>
+      </nav>
+
+    </div>
   </header>
 
   <main>
-    <section class="hero">
-      <h1>Expanding access to aviation education.</h1>
 
-      <p>
-        Future of Flight Equity works to identify barriers to aviation
-        education and connect students and educators with opportunities
-        across the aerospace industry.
-      </p>
+    <!-- HERO -->
 
-      <a class="button" href="#research">Explore Our Research</a>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            ✦ Building more pathways into aviation
+          </div>
+
+          <h1>
+            The future of flight should be accessible to everyone.
+          </h1>
+
+          <p>
+            Future of Flight Equity researches barriers to aviation
+            education and connects students, educators, and communities
+            with opportunities across aerospace.
+          </p>
+
+          <div class="button-row">
+            <a class="button button-primary" href="#research">
+              Explore Our Research
+            </a>
+
+            <a class="button button-secondary" href="#opportunities">
+              Find Opportunities
+            </a>
+          </div>
+
+        </div>
+      </div>
     </section>
 
-    <section class="section" id="about">
-      <h2>Our Mission</h2>
+    <!-- MISSION -->
 
-      <p>
-        We believe that a student's location, school funding, or background
-        should not determine whether they can explore a future in aviation.
-        Our work begins by researching educational gaps and creating
-        accessible resources for schools and students.
-      </p>
+    <section class="mission" id="about">
+      <div class="container mission-grid">
+
+        <div class="mission-copy">
+
+          <div class="section-label">
+            Our mission
+          </div>
+
+          <div class="section-heading">
+            <h2>
+              A student's ZIP code should not determine their future.
+            </h2>
+          </div>
+
+          <p>
+            Aviation and aerospace offer pathways into engineering,
+            technology, transportation, research, public service, and
+            skilled careers. However, many students never have the chance
+            to explore these fields through their schools.
+          </p>
+
+          <p>
+            Future of Flight Equity works to identify those gaps, share
+            research, and make aviation opportunities easier for students
+            and educators to find.
+          </p>
+
+        </div>
+
+        <div class="mission-panel">
+
+          <h3>How we create impact</h3>
+
+          <div class="mission-point">
+            <div class="mission-icon">📊</div>
+
+            <div>
+              <strong>Research barriers</strong>
+              <span>
+                Study the funding, staffing, and resource challenges
+                affecting aviation education.
+              </span>
+            </div>
+          </div>
+
+          <div class="mission-point">
+            <div class="mission-icon">🎓</div>
+
+            <div>
+              <strong>Connect students</strong>
+              <span>
+                Make scholarships, camps, internships, and programs easier
+                to discover.
+              </span>
+            </div>
+          </div>
+
+          <div class="mission-point">
+            <div class="mission-icon">🤝</div>
+
+            <div>
+              <strong>Support educators</strong>
+              <span>
+                Share ideas and resources for schools interested in
+                expanding aviation learning.
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </section>
 
-    <section class="section" id="research">
-      <h2>Research & Insights</h2>
+    <!-- STATISTICS -->
 
-      <p>
-        Our research examines access to aviation education in Wisconsin
-        public high schools, including the funding, staffing, and resource
-        barriers that prevent schools from developing programs.
-      </p>
+    <section class="stats">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">
+            Why it matters
+          </div>
+
+          <h2>
+            Our research shows a clear access gap.
+          </h2>
+
+          <p>
+            Future of Flight Equity surveyed Wisconsin schools to better
+            understand the availability of aviation education and the
+            barriers schools face.
+          </p>
+        </div>
+
+        <div class="stats-grid">
+
+          <div class="stat-card">
+            <div class="stat-number">25</div>
+            <p>
+              Wisconsin schools contributed responses to our aviation
+              education survey.
+            </p>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-number">80%</div>
+            <p>
+              Reported having no formal aviation education program.
+            </p>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-number">76%</div>
+            <p>
+              Identified funding as a major obstacle to program development.
+            </p>
+          </div>
+
+        </div>
+      </div>
     </section>
 
-    <section class="section" id="resources">
-      <h2>Explore Opportunities</h2>
+    <!-- RESEARCH -->
 
-      <p>
-        Discover aviation programs, scholarships, camps, internships,
-        competitions, and other opportunities designed to help students
-        explore aerospace careers.
-      </p>
+    <section class="research" id="research">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">
+            Research and insights
+          </div>
+
+          <h2>
+            Turning information into action.
+          </h2>
+
+          <p>
+            Explore our findings on aviation education access and the
+            challenges facing schools interested in expanding their
+            programs.
+          </p>
+        </div>
+
+        <div class="card-grid">
+
+          <article class="card">
+            <div class="card-icon">📄</div>
+
+            <h3>Wisconsin Aviation Education Report</h3>
+
+            <p>
+              Read our overview of aviation education access in Wisconsin
+              public schools and the factors limiting program development.
+            </p>
+
+            <a class="card-link" href="#">
+              Read the report →
+            </a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📈</div>
+
+            <h3>Survey Findings</h3>
+
+            <p>
+              Review the major patterns revealed by responses from
+              educators and schools across Wisconsin.
+            </p>
+
+            <a class="card-link" href="#research">
+              View findings →
+            </a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">💡</div>
+
+            <h3>Recommendations</h3>
+
+            <p>
+              Explore practical ideas for improving access through
+              partnerships, funding, curriculum, and student outreach.
+            </p>
+
+            <a class="card-link" href="#involved">
+              Explore solutions →
+            </a>
+          </article>
+
+        </div>
+      </div>
     </section>
 
-    <section class="section" id="contact">
-      <h2>Get Involved</h2>
+    <!-- OPPORTUNITIES -->
 
-      <p>
-        Future of Flight Equity welcomes educators, students, aviation
-        professionals, and community organizations interested in improving
-        access to aviation education.
-      </p>
+    <section id="opportunities">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">
+            Explore opportunities
+          </div>
+
+          <h2>
+            Find your pathway into aviation.
+          </h2>
+
+          <p>
+            Aviation reaches far beyond becoming a pilot. Students can
+            explore engineering, mechanics, air traffic control, space
+            science, airport operations, research, and more.
+          </p>
+        </div>
+
+        <div class="opportunities-grid">
+
+          <div class="opportunity">
+            <span>✈️</span>
+            <h3>Flight Training</h3>
+            <p>
+              Introductory flight programs and pathways for future pilots.
+            </p>
+          </div>
+
+          <div class="opportunity">
+            <span>🎓</span>
+            <h3>Scholarships</h3>
+            <p>
+              Funding opportunities for aviation education and training.
+            </p>
+          </div>
+
+          <div class="opportunity">
+            <span>🚀</span>
+            <h3>Summer Programs</h3>
+            <p>
+              Camps and experiences in aerospace, STEM, and aviation.
+            </p>
+          </div>
+
+          <div class="opportunity">
+            <span>🛠️</span>
+            <h3>Technical Careers</h3>
+            <p>
+              Explore maintenance, manufacturing, and aviation technology.
+            </p>
+          </div>
+
+          <div class="opportunity">
+            <span>🔬</span>
+            <h3>Research and STEM</h3>
+            <p>
+              Opportunities in engineering, space science, and innovation.
+            </p>
+          </div>
+
+          <div class="opportunity">
+            <span>🏆</span>
+            <h3>Competitions</h3>
+            <p>
+              Student competitions, clubs, and hands-on challenges.
+            </p>
+          </div>
+
+        </div>
+      </div>
     </section>
+
+    <!-- GET INVOLVED -->
+
+    <section class="cta" id="involved">
+      <div class="container">
+
+        <div class="cta-box">
+
+          <h2>
+            Help expand the future of aviation education.
+          </h2>
+
+          <p>
+            We welcome students, educators, aviation professionals, and
+            organizations interested in creating more accessible pathways
+            into aviation and aerospace.
+          </p>
+
+          <div class="button-row">
+            <a
+              class="button button-secondary"
+              href="mailto:YOUR-EMAIL-HERE"
+            >
+              Contact Future of Flight Equity
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
   </main>
 
+  <!-- FOOTER -->
+
   <footer>
-    <p>© 2026 Future of Flight Equity</p>
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <h3>Future of Flight Equity</h3>
+
+          <p>
+            Expanding access to aviation education through research,
+            resources, and collaboration.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h4>Explore</h4>
+          <a href="#about">About</a>
+          <a href="#research">Research</a>
+          <a href="#opportunities">Opportunities</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Connect</h4>
+          <a href="#involved">Get Involved</a>
+          <a href="mailto:YOUR-EMAIL-HERE">Email Us</a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 Future of Flight Equity. All rights reserved.
+      </div>
+
+    </div>
   </footer>
 
 </body>
