@@ -1,17 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<metaname="viewport"content="width=device-width, initial-scale=1.0"
 
-  <meta
-    name="description"
-    content="Aviation scholarships, flight training, summer programs, STEM opportunities, careers, and competitions for students."
-  >
+
+
+<metaname="description"content="Search aviation scholarships, flight training, summer programs, careers, STEM opportunities, and competitions for students."
+
+
 
   <title>Student Resources | Future of Flight Equity</title>
 
@@ -49,6 +48,11 @@
 
     a {
       color: inherit;
+    }
+
+    button,
+    input {
+      font: inherit;
     }
 
     .container {
@@ -159,33 +163,76 @@
       line-height: 1.65;
     }
 
-    .category-menu {
-      padding: 35px 0;
+    .directory-tools {
+      padding: 42px 0;
       background: var(--off-white);
       border-bottom: 1px solid var(--border);
     }
 
-    .category-links {
+    .search-wrap {
+      position: relative;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .search-wrap span {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      pointer-events: none;
+    }
+
+    #resource-search {
+      width: 100%;
+      min-height: 58px;
+      padding: 0 22px 0 54px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: white;
+      color: var(--text);
+      outline: none;
+      box-shadow: 0 10px 30px rgba(7, 26, 47, 0.06);
+    }
+
+    #resource-search:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(23, 105, 170, 0.12);
+    }
+
+    .filter-buttons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
+      gap: 11px;
+      margin-top: 23px;
     }
 
-    .category-links a {
-      padding: 11px 17px;
+    .filter-button {
+      padding: 10px 16px;
       border: 1px solid var(--border);
       border-radius: 999px;
       background: white;
       color: var(--navy);
-      text-decoration: none;
+      cursor: pointer;
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 750;
     }
 
-    .category-links a:hover {
-      color: white;
+    .filter-button:hover,
+    .filter-button.active {
       background: var(--navy);
+      border-color: var(--navy);
+      color: white;
+    }
+
+    .results-summary {
+      margin-top: 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 650;
     }
 
     section {
@@ -233,7 +280,7 @@
     }
 
     .resource-card {
-      min-height: 285px;
+      min-height: 320px;
       padding: 31px;
       display: flex;
       flex-direction: column;
@@ -249,6 +296,10 @@
     .resource-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--shadow);
+    }
+
+    .resource-card.hidden {
+      display: none;
     }
 
     .resource-top {
@@ -297,6 +348,22 @@
       line-height: 1.7;
     }
 
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 19px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--light-blue);
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 750;
+    }
+
     .resource-link {
       width: fit-content;
       margin-top: auto;
@@ -308,6 +375,22 @@
 
     .resource-link:hover {
       text-decoration: underline;
+    }
+
+    .empty-message {
+      display: none;
+      margin: 45px auto 0;
+      max-width: 620px;
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: white;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .empty-message.visible {
+      display: block;
     }
 
     .notice {
@@ -463,6 +546,7 @@
       }
     }
   </style>
+
 </head>
 
 <body>
@@ -470,572 +554,1178 @@
   <header>
     <div class="container navbar">
 
-      <a class="brand" href="index.html">
-        <div class="brand-mark">✈</div>
+  <a class="brand" href="index.html">
+    <div class="brand-mark">✈</div>
 
-        <div class="brand-text">
-          Future of Flight Equity
-          <span>Aviation access for all</span>
-        </div>
-      </a>
-
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="#flight-training">Training</a>
-        <a href="#scholarships">Scholarships</a>
-        <a href="#summer-programs">Programs</a>
-        <a href="#competitions">Competitions</a>
-      </nav>
-
+    <div class="brand-text">
+      Future of Flight Equity
+      <span>Aviation access for all</span>
     </div>
+  </a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#flight-training">Training</a>
+    <a href="#scholarships">Scholarships</a>
+    <a href="#summer-programs">Programs</a>
+    <a href="#competitions">Competitions</a>
+  </nav>
+
+</div>
+
   </header>
 
   <main>
 
-    <div class="hero">
-      <div class="container">
+<div class="hero">
+  <div class="container">
 
-        <div class="hero-label">
-          Opportunities for students
+    <div class="hero-label">
+      Opportunities for students
+    </div>
+
+    <h1>Student Resources</h1>
+
+    <p>
+      Search trusted flight programs, scholarships, camps, career
+      pathways, STEM experiences, and competitions from established
+      aviation and aerospace organizations.
+    </p>
+
+  </div>
+</div>
+
+<div class="directory-tools">
+  <div class="container">
+
+    <div class="search-wrap">
+      <span>🔎</span>
+
+      <input
+        id="resource-search"
+        type="search"
+        placeholder="Search scholarships, NASA, flight training, Wisconsin..."
+        aria-label="Search student resources"
+      >
+    </div>
+
+    <div class="filter-buttons" aria-label="Resource filters">
+      <button class="filter-button active" data-filter="all">All</button>
+      <button class="filter-button" data-filter="free">Free</button>
+      <button class="filter-button" data-filter="high-school">High School</button>
+      <button class="filter-button" data-filter="wisconsin">Wisconsin</button>
+      <button class="filter-button" data-filter="online">Online</button>
+      <button class="filter-button" data-filter="scholarship">Scholarships</button>
+      <button class="filter-button" data-filter="flight-training">Flight Training</button>
+      <button class="filter-button" data-filter="stem">STEM</button>
+    </div>
+
+    <div class="results-summary" id="results-summary">
+      Showing all resources
+    </div>
+
+  </div>
+</div>
+
+<section id="flight-training">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="section-label">Flight training</div>
+
+      <h2>Take your first steps into the sky.</h2>
+
+      <p>
+        Explore introductory flights, training tools, and official
+        information that can help students understand the process of
+        becoming a pilot.
+      </p>
+    </div>
+
+    <div class="resource-grid">
+
+      <article
+        class="resource-card"
+        data-tags="free high-school flight-training wisconsin"
+        data-search="EAA Young Eagles free introductory flights youth ages 8 17 Wisconsin Oshkosh pilot"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">✈️</div>
+          <div class="official-label">Youth program</div>
         </div>
 
-        <h1>Student Resources</h1>
+        <h3>EAA Young Eagles</h3>
+        <div class="organization">Experimental Aircraft Association</div>
 
         <p>
-          Explore trusted programs, scholarships, career pathways, STEM
-          experiences, and competitions from established aviation and
-          aerospace organizations.
+          Free introductory airplane flights for youth ages 8–17,
+          provided by volunteer pilots through local EAA chapters.
         </p>
 
-      </div>
+        <div class="tag-row">
+          <span class="tag">Free</span>
+          <span class="tag">Ages 8–17</span>
+          <span class="tag">Local chapters</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.eaa.org/eaa/youth/free-ye-flights"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Find a Young Eagles Flight →
+        </a>
+      </article>
+
+      <article
+        class="resource-card"
+        data-tags="free online high-school flight-training"
+        data-search="EAA Young Eagles Flight Plan student membership Sportys learn to fly course first lesson ground school"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">🧭</div>
+          <div class="official-label">Training pathway</div>
+        </div>
+
+        <h3>Young Eagles Flight Plan</h3>
+        <div class="organization">Experimental Aircraft Association</div>
+
+        <p>
+          After a Young Eagles flight, eligible students can access a
+          free membership, online ground-school resources, and other
+          next-step benefits.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">Free</span>
+          <span class="tag">Online</span>
+          <span class="tag">Flight training</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.eaa.org/eaa/youth/free-ye-flights/eaa-young-eagles-flight-plan"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore the Flight Plan →
+        </a>
+      </article>
+
+      <article
+        class="resource-card"
+        data-tags="online high-school flight-training"
+        data-search="FAA student aviation resources pilot school locator flight schools aviation careers scholarships"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">🗺️</div>
+          <div class="official-label">Official resource</div>
+        </div>
+
+        <h3>FAA Student Aviation Resources</h3>
+        <div class="organization">Federal Aviation Administration</div>
+
+        <p>
+          Official information on pilot schools, maintenance schools,
+          aviation careers, scholarships, and additional learning
+          resources.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">Official</span>
+          <span class="tag">Online</span>
+          <span class="tag">Career planning</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.faa.gov/education/students/resources"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit FAA Resources →
+        </a>
+      </article>
+
+      <article
+        class="resource-card"
+        data-tags="online high-school flight-training"
+        data-search="FAA aviation schools universities pilot school locator maintenance school college programs"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">🏫</div>
+          <div class="official-label">School directory</div>
+        </div>
+
+        <h3>Aviation Schools and Universities</h3>
+        <div class="organization">Federal Aviation Administration</div>
+
+        <p>
+          Explore FAA links for pilot schools, maintenance schools,
+          accredited aviation programs, and college planning.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">Online</span>
+          <span class="tag">College planning</span>
+          <span class="tag">School locator</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.faa.gov/education/students/resources/aviation-schools-and-universities"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore Aviation Schools →
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="scholarships">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="section-label">Scholarships</div>
+
+      <h2>Make aviation education more affordable.</h2>
+
+      <p>
+        Eligibility, award amounts, deadlines, and membership
+        requirements can change. Always verify details on the official
+        application page.
+      </p>
     </div>
 
-    <div class="category-menu">
-      <div class="container category-links">
+    <div class="resource-grid">
 
-        <a href="#flight-training">✈️ Flight Training</a>
-        <a href="#scholarships">🎓 Scholarships</a>
-        <a href="#summer-programs">🚀 Summer Programs</a>
-        <a href="#technical-careers">🛠️ Technical Careers</a>
-        <a href="#research-stem">🔬 Research & STEM</a>
-        <a href="#competitions">🏆 Competitions</a>
+      <article
+        class="resource-card"
+        data-tags="scholarship high-school flight-training"
+        data-search="AOPA flight training scholarships high school private pilot aviation scholarship"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">🎓</div>
+          <div class="official-label">Flight training</div>
+        </div>
 
-      </div>
+        <h3>AOPA Flight Training Scholarships</h3>
+        <div class="organization">Aircraft Owners and Pilots Association</div>
+
+        <p>
+          Scholarship opportunities supporting flight training,
+          including awards intended for eligible high school students.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">Scholarship</span>
+          <span class="tag">High school</span>
+          <span class="tag">Flight training</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.aopa.org/training-and-safety/students/aopa-flight-training-scholarships"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore AOPA Scholarships →
+        </a>
+      </article>
+
+      <article
+        class="resource-card"
+        data-tags="scholarship high-school flight-training wisconsin"
+        data-search="EAA aviation scholarships flight training college aerospace engineering maintenance Oshkosh Wisconsin"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">💙</div>
+          <div class="official-label">Multiple pathways</div>
+        </div>
+
+        <h3>EAA Aviation Scholarships</h3>
+        <div class="organization">Experimental Aircraft Association</div>
+
+        <p>
+          Scholarships for flight training and postsecondary study in
+          aviation, aerospace, engineering, maintenance, and related
+          fields.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">Scholarship</span>
+          <span class="tag">Wisconsin-based organization</span>
+          <span class="tag">Multiple fields</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.eaa.org/eaa/learn-to-fly/scholarships"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore EAA Scholarships →
+        </a>
+      </article>
+
+      <article
+        class="resource-card"
+        data-tags="scholarship high-school"
+        data-search="Women in Aviation International WAI scholarships engineering maintenance dispatch flight training"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">🌟</div>
+          <div class="official-label">Membership required</div>
+        </div>
+
+        <h3>WAI Scholarships</h3>
+        <div class="organization">Women in Aviation International</div>
+
+        <p>
+          Annual scholarships covering areas such as flight training,
+          engineering, maintenance, dispatch, leadership, and career
+          advancement. Membership is required.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">Scholarship</span>
+          <span class="tag">Multiple fields</span>
+          <span class="tag">Membership required</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.wai.org/scholarships"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore WAI Scholarships →
+        </a>
+      </article>
+
+      <article
+        class="resource-card"
+        data-tags="scholarship online high-school"
+        data-search="FAA grants scholarships aviation funding directory students"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">📚</div>
+          <div class="official-label">Scholarship directory</div>
+        </div>
+
+        <h3>FAA Grants and Scholarships</h3>
+        <div class="organization">Federal Aviation Administration</div>
+
+        <p>
+          A collection of official and outside aviation-related
+          scholarship and grant resources for students and educators.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">Scholarship</span>
+          <span class="tag">Online directory</span>
+          <span class="tag">Official resource</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.faa.gov/education/educators/curriculum/k12"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Browse FAA Scholarship Resources →
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="summer-programs">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="section-label">Summer programs</div>
+
+      <h2>Experience aviation beyond the classroom.</h2>
+
+      <p>
+        Camps and academies can introduce students to flying,
+        engineering, maintenance, airports, and many other aerospace
+        careers.
+      </p>
     </div>
 
-    <!-- FLIGHT TRAINING -->
+    <div class="resource-grid">
 
-    <section id="flight-training">
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="section-label">Flight training</div>
-
-          <h2>Take your first steps into the sky.</h2>
-
-          <p>
-            Explore introductory flights, training information, and tools
-            that can help students understand the process of becoming a
-            pilot.
-          </p>
+      <article
+        class="resource-card"
+        data-tags="high-school stem"
+        data-search="FAA ACE Academy summer aviation career education K 12 aerospace STEM"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">☀️</div>
+          <div class="official-label">K–12 program</div>
         </div>
 
-        <div class="resource-grid">
+        <h3>FAA ACE Academies</h3>
+        <div class="organization">Federal Aviation Administration</div>
 
-          <article class="resource-card">
-            <div class="resource-top">
-              <div class="resource-icon">✈️</div>
-              <div class="official-label">Youth program</div>
-            </div>
+        <p>
+          Summer aviation education programs featuring career
+          exploration, STEM activities, field trips, flight concepts,
+          and hands-on experiences.
+        </p>
 
-            <h3>EAA Young Eagles</h3>
-            <div class="organization">Experimental Aircraft Association</div>
-
-            <p>
-              Free introductory flights designed to introduce young people
-              to general aviation through local EAA chapters and volunteer
-              pilots.
-            </p>
-
-            <a
-              class="resource-link"
-              href="https://www.eaa.org/eaa/youth/free-ye-flights"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Explore Young Eagles →
-            </a>
-          </article>
-
-          <article class="resource-card">
-            <div class="resource-top">
-              <div class="resource-icon">🗺️</div>
-              <div class="official-label">Official resource</div>
-            </div>
-
-            <h3>FAA Student Aviation Resources</h3>
-            <div class="organization">Federal Aviation Administration</div>
-
-            <p>
-              Find official information about flight schools, pilot careers,
-              aviation education, scholarships, and other student resources.
-            </p>
-
-            <a
-              class="resource-link"
-              href="https://www.faa.gov/education/students/resources"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Visit FAA Resources →
-            </a>
-          </article>
-
+        <div class="tag-row">
+          <span class="tag">Summer</span>
+          <span class="tag">K–12</span>
+          <span class="tag">Career exploration</span>
         </div>
+
+        <a
+          class="resource-link"
+          href="https://www.faa.gov/education/ace_academy"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Find an ACE Academy →
+        </a>
+      </article>
+
+      <article
+        class="resource-card"
+        data-tags="high-school wisconsin stem"
+        data-search="EAA Air Academy aviation flight summer camps Oshkosh Wisconsin"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">🛩️</div>
+          <div class="official-label">Oshkosh, Wisconsin</div>
+        </div>
+
+        <h3>EAA Air Academy</h3>
+        <div class="organization">Experimental Aircraft Association</div>
+
+        <p>
+          Hands-on aviation camps in Oshkosh where students explore
+          flight, aircraft, aviation careers, and related STEM topics.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">Wisconsin</span>
+          <span class="tag">Summer camp</span>
+          <span class="tag">Hands-on</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.eaa.org/eaa/youth/eaa-aviation-and-flight-summer-camps"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore EAA Air Academy →
+        </a>
+      </article>
+
+      <article
+        class="resource-card"
+        data-tags="high-school stem"
+        data-search="OBAP ACE Academy aerospace career education summer middle high school youth aviation"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">🌎</div>
+          <div class="official-label">National program</div>
+        </div>
+
+        <h3>OBAP ACE Academy</h3>
+        <div class="organization">Organization of Black Aerospace Professionals</div>
+
+        <p>
+          Week-long summer academies for middle and high school students
+          that introduce aviation history, aerodynamics, air traffic
+          control, technology, and aerospace careers.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">Middle & high school</span>
+          <span class="tag">Summer</span>
+          <span class="tag">Multiple locations</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://obap.org/outreach-programs/ace-academy/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore OBAP ACE Academy →
+        </a>
+      </article>
+
+      <article
+        class="resource-card"
+        data-tags="online high-school stem"
+        data-search="FAA aviation workforce education programs Pathways to Flight high school engineering challenge Smart Skies"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">🧩</div>
+          <div class="official-label">Program collection</div>
+        </div>
+
+        <h3>FAA Pathways to Flight</h3>
+        <div class="organization">Federal Aviation Administration</div>
+
+        <p>
+          Explore FAA programs ranging from online aviation activities
+          to engineering challenges, school partnerships, and summer
+          academies.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">Online</span>
+          <span class="tag">High school</span>
+          <span class="tag">STEM</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.faa.gov/education/programs"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore FAA Programs →
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="technical-careers">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="section-label">Technical careers</div>
+
+      <h2>Aviation needs much more than pilots.</h2>
+
+      <p>
+        Explore maintenance, air traffic control, manufacturing,
+        engineering, airport operations, safety, and other technical
+        pathways.
+      </p>
+    </div>
+
+    <div class="resource-grid">
+
+      <article
+        class="resource-card"
+        data-tags="online high-school"
+        data-search="FAA careers aviation space pilot mechanic engineer air traffic controller airport drone manufacturing"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">🛠️</div>
+          <div class="official-label">Career explorer</div>
+        </div>
+
+        <h3>Careers in Aviation and Space</h3>
+        <div class="organization">Federal Aviation Administration</div>
+
+        <p>
+          Explore roles including pilot, mechanic, engineer, air traffic
+          controller, airport specialist, drone professional, and many
+          others.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">Online</span>
+          <span class="tag">Career explorer</span>
+          <span class="tag">Multiple fields</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.faa.gov/education"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore Aviation Careers →
+        </a>
+      </article>
+
+      <article
+        class="resource-card"
+        data-tags="online high-school"
+        data-search="FAA aircraft maintenance technician schools AMTS locator mechanic training"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">⚙️</div>
+          <div class="official-label">Training locator</div>
+        </div>
+
+        <h3>Aircraft Maintenance Schools</h3>
+        <div class="organization">Federal Aviation Administration</div>
+
+        <p>
+          Learn about FAA-certificated schools that prepare students for
+          aircraft maintenance and technical aviation careers.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">Maintenance</span>
+          <span class="tag">School locator</span>
+          <span class="tag">Technical career</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.faa.gov/licenses_certificates/airline_certification/amts"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore Maintenance Schools →
+        </a>
+      </article>
+
+      <article
+        class="resource-card"
+        data-tags="online high-school stem"
+        data-search="NASA STEM careers workforce surprisingly STEM aerospace jobs science engineering technology"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">👩‍🚀</div>
+          <div class="official-label">Career discovery</div>
+        </div>
+
+        <h3>NASA STEM Careers</h3>
+        <div class="organization">NASA</div>
+
+        <p>
+          Discover engineering, science, technology, operations, and
+          unexpected careers that support NASA missions.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">Online</span>
+          <span class="tag">STEM careers</span>
+          <span class="tag">NASA</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.nasa.gov/learning-resources/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore NASA Careers →
+        </a>
+      </article>
+
+      <article
+        class="resource-card"
+        data-tags="online high-school"
+        data-search="FAA students career list air traffic control electrician engineer mechanic pilot safety inspector"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">🧰</div>
+          <div class="official-label">Student overview</div>
+        </div>
+
+        <h3>FAA Student Career Guide</h3>
+        <div class="organization">Federal Aviation Administration</div>
+
+        <p>
+          A student-friendly overview of career options across aviation
+          and aerospace, along with links to programs and activities.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">High school</span>
+          <span class="tag">Online</span>
+          <span class="tag">Career planning</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.faa.gov/education/students"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View the Student Career Guide →
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="research-stem">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="section-label">Research and STEM</div>
+
+      <h2>Build, investigate, and solve real problems.</h2>
+
+      <p>
+        Find engineering challenges, research experiences, educational
+        activities, internships, and aerospace STEM opportunities.
+      </p>
+    </div>
+
+    <div class="resource-grid">
+
+      <article
+        class="resource-card"
+        data-tags="online high-school stem free"
+        data-search="NASA STEM opportunities students internships challenges research precollege"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">🔬</div>
+          <div class="official-label">Opportunity database</div>
+        </div>
+
+        <h3>NASA STEM Opportunities</h3>
+        <div class="organization">NASA</div>
+
+        <p>
+          Browse student challenges, internships, research experiences,
+          precollege programs, and other NASA learning opportunities.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">Online</span>
+          <span class="tag">High school</span>
+          <span class="tag">STEM</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.nasa.gov/learning-resources/nasa-stem-opportunities-activities/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore NASA Opportunities →
+        </a>
+      </article>
+
+      <article
+        class="resource-card"
+        data-tags="online high-school stem free"
+        data-search="NASA learning resources search STEM activities videos interactive guides"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">🚀</div>
+          <div class="official-label">Learning library</div>
+        </div>
+
+        <h3>NASA Learning Resources</h3>
+        <div class="organization">NASA</div>
+
+        <p>
+          Search hands-on activities, interactive features, videos,
+          learning guides, student opportunities, and career resources.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">Free</span>
+          <span class="tag">Online</span>
+          <span class="tag">STEM</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.nasa.gov/learning-resources/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Search NASA Resources →
+        </a>
+      </article>
+
+      <article
+        class="resource-card"
+        data-tags="online high-school stem free"
+        data-search="FAA student activities high school games puzzles projects aviation STEM"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">🧪</div>
+          <div class="official-label">Hands-on activities</div>
+        </div>
+
+        <h3>FAA Student Activities</h3>
+        <div class="organization">Federal Aviation Administration</div>
+
+        <p>
+          Aviation and STEM games, projects, experiments, puzzles, and
+          activities organized by grade level.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">Free</span>
+          <span class="tag">Online</span>
+          <span class="tag">High school</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.faa.gov/education/students/activities"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore FAA Activities →
+        </a>
+      </article>
+
+      <article
+        class="resource-card"
+        data-tags="online high-school stem free"
+        data-search="FAA K 12 educational resources aviation curriculum high school flight aerospace lessons"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">📘</div>
+          <div class="official-label">Curriculum library</div>
+        </div>
+
+        <h3>FAA K–12 Educational Resources</h3>
+        <div class="organization">Federal Aviation Administration</div>
+
+        <p>
+          Browse aviation curriculum, lessons, activities, and
+          instructional resources for elementary, middle, and high
+          school learning.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">Free</span>
+          <span class="tag">Online</span>
+          <span class="tag">K–12</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.faa.gov/education/educators/curriculum/k12"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Browse FAA Curriculum →
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="competitions">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="section-label">Competitions</div>
+
+      <h2>Turn aerospace ideas into hands-on projects.</h2>
+
+      <p>
+        Competitions help students practice engineering, teamwork,
+        design, communication, data analysis, and creative
+        problem-solving.
+      </p>
+    </div>
+
+    <div class="resource-grid">
+
+      <article
+        class="resource-card"
+        data-tags="high-school stem"
+        data-search="American Rocketry Challenge middle high school design build launch model rockets competition"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">🏆</div>
+          <div class="official-label">Team competition</div>
+        </div>
+
+        <h3>American Rocketry Challenge</h3>
+        <div class="organization">Aerospace Industries Association</div>
+
+        <p>
+          A national competition where student teams design, build,
+          test, and launch model rockets to meet an annual engineering
+          challenge.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">Middle & high school</span>
+          <span class="tag">Team competition</span>
+          <span class="tag">Engineering</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://rocketcontest.org/how-to-compete/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn How to Compete →
+        </a>
+      </article>
+
+      <article
+        class="resource-card"
+        data-tags="online high-school stem free"
+        data-search="NASA STEM challenges student engineering rover app development competition"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">🛰️</div>
+          <div class="official-label">Multiple challenges</div>
+        </div>
+
+        <h3>NASA Student Challenges</h3>
+        <div class="organization">NASA</div>
+
+        <p>
+          Explore engineering, coding, design, robotics, science, and
+          space-exploration challenges for students at different levels.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">STEM</span>
+          <span class="tag">High school</span>
+          <span class="tag">NASA</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.nasa.gov/learning-resources/nasa-stem-opportunities-activities/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore NASA Challenges →
+        </a>
+      </article>
+
+      <article
+        class="resource-card"
+        data-tags="online high-school stem free"
+        data-search="FAA Dream With Us high school engineering challenge aviation NASA mentors"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">💡</div>
+          <div class="official-label">Engineering challenge</div>
+        </div>
+
+        <h3>FAA High School Engineering Challenge</h3>
+        <div class="organization">Federal Aviation Administration</div>
+
+        <p>
+          A national challenge where high school teams work on real-world
+          aviation engineering problems and build solutions with support
+          from industry mentors.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">High school</span>
+          <span class="tag">Engineering</span>
+          <span class="tag">Team challenge</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.faa.gov/education/programs"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore FAA Challenges →
+        </a>
+      </article>
+
+      <article
+        class="resource-card"
+        data-tags="online high-school stem free"
+        data-search="FAA Airport Design Challenge Minecraft airport engineering students"
+      >
+        <div class="resource-top">
+          <div class="resource-icon">🏗️</div>
+          <div class="official-label">Design challenge</div>
+        </div>
+
+        <h3>FAA Airport Design Challenge</h3>
+        <div class="organization">Federal Aviation Administration</div>
+
+        <p>
+          A student design experience that uses Minecraft and guidance
+          from aerospace professionals to explore airport planning and
+          engineering.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">Free</span>
+          <span class="tag">Online</span>
+          <span class="tag">Design</span>
+        </div>
+
+        <a
+          class="resource-link"
+          href="https://www.faa.gov/education"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Explore the Design Challenge →
+        </a>
+      </article>
+
+    </div>
+
+    <div class="notice">
+      <strong>Please verify current details:</strong>
+      Program dates, costs, locations, ages, deadlines, and eligibility
+      requirements may change. Future of Flight Equity links to official
+      organizations so students can confirm current information before
+      applying.
+    </div>
+
+    <div class="empty-message" id="empty-message">
+      <strong>No matching resources found.</strong>
+      <p>Try a broader search or select a different filter.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+
+    <div class="cta-box">
+
+      <h2>Know an opportunity that belongs here?</h2>
+
+      <p>
+        Students, educators, and aviation organizations can suggest
+        reputable programs for possible inclusion in the resource hub.
+      </p>
+
+      <div class="button-row">
+
+        <a
+          class="button button-light"
+          href="mailto:futureofflightequity@gmail.com?subject=FFE%20Resource%20Suggestion"
+        >
+          Suggest a Resource
+        </a>
+
+        <a
+          class="button button-outline"
+          href="index.html"
+        >
+          Return to Home
+        </a>
+
       </div>
-    </section>
 
-    <!-- SCHOLARSHIPS -->
+    </div>
 
-    <section id="scholarships">
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="section-label">Scholarships</div>
-
-          <h2>Make aviation education more affordable.</h2>
-
-          <p>
-            Scholarship availability, eligibility, award amounts, and
-            deadlines can change. Always confirm details on the official
-            application page.
-          </p>
-        </div>
-
-        <div class="resource-grid">
-
-          <article class="resource-card">
-            <div class="resource-top">
-              <div class="resource-icon">🎓</div>
-              <div class="official-label">Flight training</div>
-            </div>
-
-            <h3>AOPA Flight Training Scholarships</h3>
-            <div class="organization">Aircraft Owners and Pilots Association</div>
-
-            <p>
-              Scholarship opportunities supporting flight training,
-              including options intended for eligible high school students
-              pursuing private pilot certification.
-            </p>
-
-            <a
-              class="resource-link"
-              href="https://www.aopa.org/training-and-safety/students/aopa-flight-training-scholarships"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Explore AOPA Scholarships →
-            </a>
-          </article>
-
-          <article class="resource-card">
-            <div class="resource-top">
-              <div class="resource-icon">💙</div>
-              <div class="official-label">Multiple pathways</div>
-            </div>
-
-            <h3>EAA Aviation Scholarships</h3>
-            <div class="organization">Experimental Aircraft Association</div>
-
-            <p>
-              Explore scholarships for flight training and postsecondary
-              study in aviation, aerospace, engineering, maintenance, and
-              related fields.
-            </p>
-
-            <a
-              class="resource-link"
-              href="https://www.eaa.org/eaa/learn-to-fly/scholarships"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Explore EAA Scholarships →
-            </a>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- SUMMER PROGRAMS -->
-
-    <section id="summer-programs">
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="section-label">Summer programs</div>
-
-          <h2>Experience aviation beyond the classroom.</h2>
-
-          <p>
-            Camps and academies can introduce students to flying,
-            engineering, maintenance, airports, and other aerospace careers.
-          </p>
-        </div>
-
-        <div class="resource-grid">
-
-          <article class="resource-card">
-            <div class="resource-top">
-              <div class="resource-icon">☀️</div>
-              <div class="official-label">K–12 program</div>
-            </div>
-
-            <h3>FAA ACE Academies</h3>
-            <div class="organization">Federal Aviation Administration</div>
-
-            <p>
-              Summer aviation education programs featuring career
-              exploration, STEM activities, flight concepts, field trips,
-              and aviation-related experiences.
-            </p>
-
-            <a
-              class="resource-link"
-              href="https://www.faa.gov/education/ace_academy"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Find an ACE Academy →
-            </a>
-          </article>
-
-          <article class="resource-card">
-            <div class="resource-top">
-              <div class="resource-icon">🛩️</div>
-              <div class="official-label">Oshkosh, Wisconsin</div>
-            </div>
-
-            <h3>EAA Air Academy</h3>
-            <div class="organization">Experimental Aircraft Association</div>
-
-            <p>
-              Hands-on aviation camps in Oshkosh. Financial assistance may
-              be available through EAA Air Academy camperships.
-            </p>
-
-            <a
-              class="resource-link"
-              href="https://www.eaa.org/eaa/youth/eaa-aviation-and-flight-summer-camps"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Explore Air Academy →
-            </a>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- TECHNICAL CAREERS -->
-
-    <section id="technical-careers">
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="section-label">Technical careers</div>
-
-          <h2>Aviation needs much more than pilots.</h2>
-
-          <p>
-            Explore careers in maintenance, air traffic control,
-            manufacturing, avionics, engineering, airport operations, and
-            other technical areas.
-          </p>
-        </div>
-
-        <div class="resource-grid">
-
-          <article class="resource-card">
-            <div class="resource-top">
-              <div class="resource-icon">🛠️</div>
-              <div class="official-label">Career explorer</div>
-            </div>
-
-            <h3>Careers in Aviation and Space</h3>
-            <div class="organization">Federal Aviation Administration</div>
-
-            <p>
-              Explore pilot, engineering, maintenance, manufacturing,
-              drone, airport, air traffic control, and aviation operations
-              careers.
-            </p>
-
-            <a
-              class="resource-link"
-              href="https://www.faa.gov/education/about/careers-aviation-and-space"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Explore Aviation Careers →
-            </a>
-          </article>
-
-          <article class="resource-card">
-            <div class="resource-top">
-              <div class="resource-icon">⚙️</div>
-              <div class="official-label">Training locator</div>
-            </div>
-
-            <h3>Aircraft Maintenance Schools</h3>
-            <div class="organization">Federal Aviation Administration</div>
-
-            <p>
-              Learn about FAA-certificated schools that train students for
-              careers in aircraft maintenance and technical aviation work.
-            </p>
-
-            <a
-              class="resource-link"
-              href="https://www.faa.gov/licenses_certificates/airline_certification/amts"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Explore Maintenance Schools →
-            </a>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- RESEARCH AND STEM -->
-
-    <section id="research-stem">
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="section-label">Research and STEM</div>
-
-          <h2>Build, investigate, and solve real problems.</h2>
-
-          <p>
-            Find engineering challenges, research experiences, internships,
-            educational activities, and other aerospace STEM opportunities.
-          </p>
-        </div>
-
-        <div class="resource-grid">
-
-          <article class="resource-card">
-            <div class="resource-top">
-              <div class="resource-icon">🔬</div>
-              <div class="official-label">Opportunity database</div>
-            </div>
-
-            <h3>NASA STEM Gateway</h3>
-            <div class="organization">NASA</div>
-
-            <p>
-              Search NASA opportunities including challenges, internships,
-              research, precollege experiences, and educational programs.
-            </p>
-
-            <a
-              class="resource-link"
-              href="https://stemgateway.nasa.gov/public/s/explore-opportunities"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Search NASA Opportunities →
-            </a>
-          </article>
-
-          <article class="resource-card">
-            <div class="resource-top">
-              <div class="resource-icon">🚀</div>
-              <div class="official-label">Student activities</div>
-            </div>
-
-            <h3>NASA Student Opportunities</h3>
-            <div class="organization">NASA</div>
-
-            <p>
-              Explore current STEM activities, engineering challenges,
-              educational programs, and student opportunities connected to
-              NASA missions.
-            </p>
-
-            <a
-              class="resource-link"
-              href="https://www.nasa.gov/learning-resources/nasa-stem-opportunities-activities/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Explore NASA STEM →
-            </a>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- COMPETITIONS -->
-
-    <section id="competitions">
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="section-label">Competitions</div>
-
-          <h2>Turn aerospace ideas into hands-on projects.</h2>
-
-          <p>
-            Competitions help students practice engineering, teamwork,
-            design, communication, data analysis, and problem-solving.
-          </p>
-        </div>
-
-        <div class="resource-grid">
-
-          <article class="resource-card">
-            <div class="resource-top">
-              <div class="resource-icon">🏆</div>
-              <div class="official-label">Team competition</div>
-            </div>
-
-            <h3>American Rocketry Challenge</h3>
-            <div class="organization">Aerospace Industries Association</div>
-
-            <p>
-              A national competition where middle and high school teams
-              design, build, test, and launch model rockets to meet an annual
-              engineering challenge.
-            </p>
-
-            <a
-              class="resource-link"
-              href="https://rocketcontest.org/how-to-compete/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn How to Compete →
-            </a>
-          </article>
-
-          <article class="resource-card">
-            <div class="resource-top">
-              <div class="resource-icon">🛰️</div>
-              <div class="official-label">Multiple challenges</div>
-            </div>
-
-            <h3>NASA STEM Challenges</h3>
-            <div class="organization">NASA</div>
-
-            <p>
-              Browse NASA challenges and projects involving engineering,
-              space exploration, technology, coding, design, and scientific
-              problem-solving.
-            </p>
-
-            <a
-              class="resource-link"
-              href="https://www.nasa.gov/learning-resources/nasa-stem-opportunities-activities/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Explore NASA Challenges →
-            </a>
-          </article>
-
-        </div>
-
-        <div class="notice">
-          <strong>Please verify current details:</strong>
-          Program dates, costs, locations, ages, deadlines, and eligibility
-          requirements may change. Future of Flight Equity links directly to
-          official organizations so students can confirm the latest
-          information before applying.
-        </div>
-
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="container">
-
-        <div class="cta-box">
-
-          <h2>Know an opportunity that belongs here?</h2>
-
-          <p>
-            Students, educators, and aviation organizations can suggest
-            reputable programs for possible inclusion in the resource hub.
-          </p>
-
-          <div class="button-row">
-
-            <a
-              class="button button-light"
-              href="mailto:futureofflightequity@gmail.com?subject=FFE Resource Suggestion"
-            >
-              Suggest a Resource
-            </a>
-
-            <a
-              class="button button-outline"
-              href="index.html"
-            >
-              Return to Home
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
+  </div>
+</section>
 
   </main>
 
   <footer class="site-footer">
     <div class="container">
 
-      <div class="footer-grid">
+  <div class="footer-grid">
 
-        <div>
-          <h3>Future of Flight Equity</h3>
+    <div>
+      <h3>Future of Flight Equity</h3>
 
-          <p>
-            Expanding access to aviation education through research,
-            resources, and collaboration.
-          </p>
-        </div>
-
-        <div class="footer-column">
-          <h4>Resources</h4>
-          <a href="#flight-training">Flight Training</a>
-          <a href="#scholarships">Scholarships</a>
-          <a href="#summer-programs">Summer Programs</a>
-        </div>
-
-        <div class="footer-column">
-          <h4>Explore</h4>
-          <a href="index.html">Home</a>
-          <a href="survey-findings.html">Survey Findings</a>
-          <a href="recommendations.html">Recommendations</a>
-        </div>
-
-      </div>
-
-      <div class="footer-bottom">
-        © 2026 Future of Flight Equity. All rights reserved.
-      </div>
-
+      <p>
+        Expanding access to aviation education through research,
+        resources, and collaboration.
+      </p>
     </div>
+
+    <div class="footer-column">
+      <h4>Resources</h4>
+      <a href="#flight-training">Flight Training</a>
+      <a href="#scholarships">Scholarships</a>
+      <a href="#summer-programs">Summer Programs</a>
+    </div>
+
+    <div class="footer-column">
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="survey-findings.html">Survey Findings</a>
+      <a href="recommendations.html">Recommendations</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Future of Flight Equity. All rights reserved.
+  </div>
+
+</div>
+
   </footer>
+
+  <script>
+    const searchInput = document.getElementById("resource-search");
+    const filterButtons = document.querySelectorAll(".filter-button");
+    const resourceCards = document.querySelectorAll(".resource-card");
+    const resultsSummary = document.getElementById("results-summary");
+    const emptyMessage = document.getElementById("empty-message");
+
+    let activeFilter = "all";
+
+    function updateResources() {
+      const searchTerm = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      resourceCards.forEach((card) => {
+        const searchableText = (
+          card.dataset.search + " " +
+          card.dataset.tags + " " +
+          card.textContent
+        ).toLowerCase();
+
+        const matchesSearch =
+          searchTerm === "" || searchableText.includes(searchTerm);
+
+        const matchesFilter =
+          activeFilter === "all" ||
+          card.dataset.tags.split(" ").includes(activeFilter);
+
+        const shouldShow = matchesSearch && matchesFilter;
+
+        card.classList.toggle("hidden", !shouldShow);
+
+        if (shouldShow) {
+          visibleCount += 1;
+        }
+      });
+
+      if (searchTerm === "" && activeFilter === "all") {
+        resultsSummary.textContent = "Showing all resources";
+      } else {
+        resultsSummary.textContent =
+          `Showing ${visibleCount} matching resource${visibleCount === 1 ? "" : "s"}`;
+      }
+
+      emptyMessage.classList.toggle("visible", visibleCount === 0);
+    }
+
+    searchInput.addEventListener("input", updateResources);
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+        activeFilter = button.dataset.filter;
+        updateResources();
+      });
+    });
+  </script>
 
 </body>
 </html>
