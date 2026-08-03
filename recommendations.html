@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Recommendations from Future of Flight Equity for expanding access to aviation education in Wisconsin schools."
+  >
+
+  <title>Recommendations | Future of Flight Equity</title>
+
+  <style>
+    :root {
+      --navy: #071a2f;
+      --blue: #1769aa;
+      --light-blue: #eaf5ff;
+      --white: #ffffff;
+      --off-white: #f7f9fc;
+      --text: #172033;
+      --muted: #5f6b7a;
+      --border: #dce5ef;
+      --shadow: 0 18px 50px rgba(7, 26, 47, 0.10);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 88%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(220, 229, 239, 0.85);
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--navy);
+      color: white;
+      font-size: 21px;
+    }
+
+    .brand-text {
+      line-height: 1.05;
+    }
+
+    .brand-text span {
+      display: block;
+      margin-top: 4px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 650;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    .hero {
+      padding: 125px 0 105px;
+      color: white;
+      background:
+        radial-gradient(circle at top right, #267fc2, transparent 38%),
+        var(--navy);
+    }
+
+    .hero-label {
+      display: inline-block;
+      margin-bottom: 22px;
+      padding: 9px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.09);
+      font-size: 13px;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(52px, 8vw, 88px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .hero p {
+      max-width: 760px;
+      margin: 27px 0 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.65;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-label {
+      margin-bottom: 15px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .section-heading {
+      max-width: 820px;
+      margin-bottom: 48px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(36px, 5vw, 57px);
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    .section-heading p {
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .intro {
+      background: var(--off-white);
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .intro-copy p {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .intro-callout {
+      padding: 36px;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at top right, #d8efff, transparent 45%),
+        white;
+      box-shadow: var(--shadow);
+    }
+
+    .intro-callout strong {
+      display: block;
+      color: var(--navy);
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .intro-callout p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .recommendations-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .recommendation-card {
+      min-height: 310px;
+      padding: 32px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: 0 12px 35px rgba(7, 26, 47, 0.06);
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .recommendation-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .number {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: var(--light-blue);
+      color: var(--blue);
+      font-size: 22px;
+      font-weight: 850;
+    }
+
+    .recommendation-card h3 {
+      margin: 26px 0 12px;
+      color: var(--navy);
+      font-size: 25px;
+    }
+
+    .recommendation-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .steps {
+      background: var(--navy);
+      color: white;
+    }
+
+    .steps .section-label {
+      color: #8ed1fc;
+    }
+
+    .steps .section-heading h2 {
+      color: white;
+    }
+
+    .steps .section-heading p {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .step-card {
+      padding: 30px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .step-card span {
+      display: block;
+      color: #8ed1fc;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .step-card h3 {
+      margin: 15px 0 10px;
+      font-size: 23px;
+    }
+
+    .step-card p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.7;
+    }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .audience-card {
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: white;
+    }
+
+    .audience-card .icon {
+      font-size: 31px;
+    }
+
+    .audience-card h3 {
+      margin: 18px 0 10px;
+      color: var(--navy);
+      font-size: 23px;
+    }
+
+    .audience-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .cta-box {
+      padding: 70px;
+      border-radius: 34px;
+      color: white;
+      text-align: center;
+      background:
+        radial-gradient(circle at top left, #267fc2, transparent 45%),
+        var(--navy);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box h2 {
+      max-width: 780px;
+      margin: 0 auto;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .cta-box p {
+      max-width: 680px;
+      margin: 22px auto 0;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .button {
+      min-height: 50px;
+      padding: 0 23px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 750;
+      transition: transform 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-light {
+      color: var(--navy);
+      background: white;
+    }
+
+    .button-outline {
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .site-footer {
+      margin-top: 100px;
+      padding: 55px 0 35px;
+      color: white;
+      background: #041426;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr 0.6fr;
+      gap: 50px;
+    }
+
+    .footer-grid p {
+      max-width: 440px;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.7;
+    }
+
+    .footer-column h4 {
+      margin-top: 0;
+    }
+
+    .footer-column a {
+      display: block;
+      margin-top: 13px;
+      color: rgba(255, 255, 255, 0.68);
+      text-decoration: none;
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      margin-top: 50px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.11);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        display: none;
+      }
+
+      .intro-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .recommendations-grid,
+      .steps-grid,
+      .audience-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: min(92%, 1120px);
+      }
+
+      section {
+        padding: 76px 0;
+      }
+
+      .hero {
+        padding: 95px 0 80px;
+      }
+
+      .brand-text {
+        font-size: 14px;
+      }
+
+      .brand-text span {
+        font-size: 10px;
+      }
+
+      .cta-box {
+        padding: 55px 24px;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container navbar">
+
+      <a class="brand" href="index.html">
+        <div class="brand-mark">✈</div>
+
+        <div class="brand-text">
+          Future of Flight Equity
+          <span>Aviation access for all</span>
+        </div>
+      </a>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="#recommendations">Recommendations</a>
+        <a href="#action">Start Small</a>
+        <a href="#roles">Who Can Help</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+
+        <div class="hero-label">
+          Practical pathways forward
+        </div>
+
+        <h1>
+          Recommendations
+        </h1>
+
+        <p>
+          Expanding aviation education does not always require a new course,
+          expensive equipment, or a complete curriculum overhaul. Schools
+          can begin with flexible, affordable steps that build interest and
+          capacity over time.
+        </p>
+
+      </div>
+    </section>
+
+    <section class="intro">
+      <div class="container intro-grid">
+
+        <div class="intro-copy">
+
+          <div class="section-label">
+            Our approach
+          </div>
+
+          <div class="section-heading">
+            <h2>
+              Lower the barriers to getting started.
+            </h2>
+          </div>
+
+          <p>
+            Survey findings show that funding, qualified instructors,
+            curriculum, equipment, and professional development are major
+            obstacles for schools.
+          </p>
+
+          <p>
+            The most realistic path is to use resources schools already
+            have, introduce aviation gradually, and build partnerships that
+            reduce cost and staff burden.
+          </p>
+
+        </div>
+
+        <div class="intro-callout">
+          <strong>
+            Start small. Learn what works. Expand over time.
+          </strong>
+
+          <p>
+            Short modules, existing STEM courses, guest speakers, clubs, and
+            community partnerships can give students meaningful aviation
+            exposure without requiring a large initial investment.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="recommendations">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">
+            Five recommendations
+          </div>
+
+          <h2>
+            Realistic strategies for Wisconsin schools.
+          </h2>
+
+          <p>
+            These recommendations are designed to be affordable, flexible,
+            and scalable across schools with different budgets, staffing,
+            and community resources.
+          </p>
+        </div>
+
+        <div class="recommendations-grid">
+
+          <article class="recommendation-card">
+            <div class="number">1</div>
+
+            <h3>
+              Integrate aviation into existing STEM classes
+            </h3>
+
+            <p>
+              Schools can use aviation examples in physics, mathematics,
+              engineering, and technology lessons. Topics such as motion,
+              energy, navigation, and system design already connect naturally
+              with existing coursework.
+            </p>
+          </article>
+
+          <article class="recommendation-card">
+            <div class="number">2</div>
+
+            <h3>
+              Test short introductory modules
+            </h3>
+
+            <p>
+              One- or two-week units can introduce aviation careers and
+              concepts through digital resources, simulations, and hands-on
+              problem solving without creating a full course.
+            </p>
+          </article>
+
+          <article class="recommendation-card">
+            <div class="number">3</div>
+
+            <h3>
+              Build local aviation partnerships
+            </h3>
+
+            <p>
+              Flight schools, airports, museums, universities, aviation
+              organizations, and industry professionals can provide guest
+              speakers, mentors, facility visits, and real-world learning.
+            </p>
+          </article>
+
+          <article class="recommendation-card">
+            <div class="number">4</div>
+
+            <h3>
+              Begin with extracurricular opportunities
+            </h3>
+
+            <p>
+              Clubs, seminars, workshops, and after-school activities require
+              fewer approvals and allow schools to test student interest
+              before making larger commitments.
+            </p>
+          </article>
+
+          <article class="recommendation-card">
+            <div class="number">5</div>
+
+            <h3>
+              Share resources across schools
+            </h3>
+
+            <p>
+              A shared collection of lesson plans, funding opportunities,
+              partner contacts, and implementation guides can reduce repeated
+              work and make aviation education easier to launch.
+            </p>
+          </article>
+
+          <article class="recommendation-card">
+            <div class="number">+</div>
+
+            <h3>
+              Expand based on results
+            </h3>
+
+            <p>
+              Schools can use participation, student feedback, and community
+              support to decide whether to expand into longer modules,
+              electives, certifications, or career pathways.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="steps" id="action">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">
+            A low-risk starting model
+          </div>
+
+          <h2>
+            A school can begin in three steps.
+          </h2>
+
+          <p>
+            The goal is not to build a complete aviation program immediately.
+            It is to create a practical first opportunity for students.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+
+          <article class="step-card">
+            <span>Step one</span>
+
+            <h3>
+              Identify an entry point
+            </h3>
+
+            <p>
+              Choose one existing class, club, enrichment period, or event
+              where aviation content can be introduced.
+            </p>
+          </article>
+
+          <article class="step-card">
+            <span>Step two</span>
+
+            <h3>
+              Add outside support
+            </h3>
+
+            <p>
+              Invite a local aviation professional, use a ready-made lesson,
+              or connect with a nearby organization or training program.
+            </p>
+          </article>
+
+          <article class="step-card">
+            <span>Step three</span>
+
+            <h3>
+              Measure interest
+            </h3>
+
+            <p>
+              Gather student participation and feedback, then use the results
+              to decide how the opportunity could grow.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="roles">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">
+            Shared responsibility
+          </div>
+
+          <h2>
+            Expanding access requires collaboration.
+          </h2>
+
+          <p>
+            Schools cannot overcome every financial and structural obstacle
+            alone. Aviation organizations, community partners, and education
+            leaders all have a role.
+          </p>
+        </div>
+
+        <div class="audience-grid">
+
+          <article class="audience-card">
+            <div class="icon">🏫</div>
+
+            <h3>
+              Schools and educators
+            </h3>
+
+            <p>
+              Test affordable modules, connect aviation to current classes,
+              create clubs, and communicate what support is needed.
+            </p>
+          </article>
+
+          <article class="audience-card">
+            <div class="icon">✈️</div>
+
+            <h3>
+              Aviation organizations
+            </h3>
+
+            <p>
+              Offer guest lessons, mentorship, curriculum support, facility
+              access, career exposure, and community partnerships.
+            </p>
+          </article>
+
+          <article class="audience-card">
+            <div class="icon">🏛️</div>
+
+            <h3>
+              Leaders and policymakers
+            </h3>
+
+            <p>
+              Raise awareness, support resource sharing, and create targeted
+              funding opportunities that can grow over time.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+
+        <div class="cta-box">
+
+          <h2>
+            Aviation education can begin with one meaningful opportunity.
+          </h2>
+
+          <p>
+            Read the full advocacy brief for more information about the
+            barriers Wisconsin schools face and the strategies that can help
+            make aviation education more accessible.
+          </p>
+
+          <div class="button-row">
+
+            <a
+              class="button button-light"
+              href="wisconsin-aviation-education-brief.pdf"
+              target="_blank"
+            >
+              Open the Advocacy Brief
+            </a>
+
+            <a
+              class="button button-outline"
+              href="survey-findings.html"
+            >
+              View Survey Findings
+            </a>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+          <h3>Future of Flight Equity</h3>
+
+          <p>
+            Expanding access to aviation education through research,
+            resources, and collaboration.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h4>Explore</h4>
+          <a href="index.html">Home</a>
+          <a href="survey-findings.html">Survey Findings</a>
+          <a href="#recommendations">Recommendations</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Connect</h4>
+
+          <a href="mailto:futureofflightequity@gmail.com">
+            Email Us
+          </a>
+
+          <a
+            href="wisconsin-aviation-education-brief.pdf"
+            target="_blank"
+          >
+            Advocacy Brief
+          </a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 Future of Flight Equity. All rights reserved.
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
