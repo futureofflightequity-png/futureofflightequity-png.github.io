@@ -87,12 +87,16 @@
       font-weight: 800;
     }
 
-    .brand-logo {
-  width: 58px;
-  height: 58px;
-  object-fit: contain;
-  display: block;
-}
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--navy);
+      color: white;
+      font-size: 21px;
+    }
 
     .brand-text {
       line-height: 1.05;
@@ -551,11 +555,7 @@
     <div class="container navbar">
 
       <a class="brand" href="index.html">
-      <img
-  class="brand-logo"
-  src="ffe-logo.png"
-  alt="Future of Flight Equity logo"
->
+        <div class="brand-mark">✈</div>
 
         <div class="brand-text">
           Future of Flight Equity
