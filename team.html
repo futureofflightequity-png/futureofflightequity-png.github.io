@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Meet the student-led team behind Future of Flight Equity."
+  >
+
+  <title>Our Team | Future of Flight Equity</title>
+
+  <style>
+    :root {
+      --navy: #071a2f;
+      --blue: #1769aa;
+      --light-blue: #eaf5ff;
+      --white: #ffffff;
+      --off-white: #f7f9fc;
+      --text: #172033;
+      --muted: #5f6b7a;
+      --border: #dce5ef;
+      --shadow: 0 18px 50px rgba(7, 26, 47, 0.10);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    .container {
+      width: min(1120px, 88%);
+      margin: auto;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .brand-logo {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-text {
+      line-height: 1.05;
+    }
+
+    .brand-text span {
+      display: block;
+      margin-top: 4px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 650;
+    }
+
+    nav a:hover {
+      color: var(--blue);
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 115px 0 105px;
+      color: white;
+      background:
+        radial-gradient(circle at top right, #267fc2, transparent 38%),
+        var(--navy);
+    }
+
+    .hero-label {
+      display: inline-block;
+      margin-bottom: 22px;
+      padding: 9px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.09);
+      font-size: 13px;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(52px, 8vw, 88px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 27px 0 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 20px;
+      line-height: 1.65;
+    }
+
+    /* TEAM */
+
+    .team-section {
+      padding: 100px 0 120px;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 50px;
+    }
+
+    .section-label {
+      margin-bottom: 14px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(36px, 5vw, 55px);
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    .section-heading p {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .team-card {
+      padding: 35px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: 0 12px 35px rgba(7, 26, 47, 0.06);
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .initials {
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 26px;
+      border-radius: 50%;
+      background: var(--light-blue);
+      color: var(--blue);
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .team-card h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 24px;
+    }
+
+    .role {
+      margin-bottom: 18px;
+      color: var(--blue);
+      font-weight: 750;
+      line-height: 1.45;
+    }
+
+    .location {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* JOIN */
+
+    .join {
+      padding: 0 0 110px;
+    }
+
+    .join-box {
+      padding: 55px;
+      border-radius: 28px;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .join-box h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 36px;
+    }
+
+    .join-box p {
+      max-width: 600px;
+      margin: 16px auto 25px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 50px;
+      padding: 0 24px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: var(--navy);
+      color: white;
+      text-decoration: none;
+      font-weight: 750;
+    }
+
+    .button:hover {
+      background: var(--blue);
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 45px 0;
+      background: #041426;
+      color: white;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      align-items: center;
+    }
+
+    footer p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 14px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    @media (max-width: 850px) {
+      nav {
+        display: none;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: 92%;
+      }
+
+      .hero {
+        padding: 90px 0 80px;
+      }
+
+      .team-section {
+        padding: 75px 0;
+      }
+
+      .join-box {
+        padding: 40px 24px;
+      }
+
+      .brand-text {
+        font-size: 14px;
+      }
+
+      .brand-text span {
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container navbar">
+
+      <a class="brand" href="index.html">
+
+        <img
+          class="brand-logo"
+          src="ffe-logo.png"
+          alt="Future of Flight Equity logo"
+        >
+
+        <div class="brand-text">
+          Future of Flight Equity
+          <span>Aviation access for all</span>
+        </div>
+
+      </a>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="resources.html">Student Resources</a>
+        <a href="team.html">Our Team</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <section class="hero">
+
+      <div class="container">
+
+        <div class="hero-label">
+          Future of Flight Equity
+        </div>
+
+        <h1>Our Team</h1>
+
+        <p>
+          Meet the student-led team working to expand access to
+          aviation education and opportunities.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="team-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div class="section-label">
+            The people behind FFE
+          </div>
+
+          <h2>Building a more accessible future of flight.</h2>
+
+          <p>
+            Future of Flight Equity is led by students working across
+            state lines to connect young people with aviation education,
+            resources, and opportunities.
+          </p>
+
+        </div>
+
+
+        <div class="team-grid">
+
+          <div class="team-card">
+
+            <div class="initials">LD</div>
+
+            <h3>Lucia Di Gennaro</h3>
+
+            <div class="role">
+              Founder & Executive Director
+            </div>
+
+            <div class="location">
+              📍 Wisconsin
+            </div>
+
+          </div>
+
+
+          <div class="team-card">
+
+            <div class="initials">DK</div>
+
+            <h3>Daniel Kim</h3>
+
+            <div class="role">
+              Vice President of Communications
+            </div>
+
+            <div class="location">
+              📍 North Carolina
+            </div>
+
+          </div>
+
+
+          <div class="team-card">
+
+            <div class="initials">ZW</div>
+
+            <h3>Zalik Wilson</h3>
+
+            <div class="role">
+              Georgia Regional Ambassador
+            </div>
+
+            <div class="location">
+              📍 Georgia
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="join">
+
+      <div class="container">
+
+        <div class="join-box">
+
+          <h2>Want to join us?</h2>
+
+          <p>
+            Future of Flight Equity is growing. If you're interested in
+            helping expand access to aviation education, we'd love to
+            hear from you.
+          </p>
+
+          <a
+            class="button"
+            href="https://forms.gle/jYou2p2hf4ErsG1X8"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get Involved
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <div class="container footer-content">
+
+      <p>
+        © 2026 Future of Flight Equity. All rights reserved.
+      </p>
+
+      <a href="index.html">
+        Return to Home
+      </a>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
